@@ -1,0 +1,72 @@
+.movieRow {
+    margin-bottom: 30px;
+}
+
+.movieRow h2 {
+    margin: 0px 0px 0px 30px;
+}
+
+.movieRow--listarea {
+    overflow-x: hidden; /*Quando os itens passarem da largura máxima eles serão cortados*/
+    padding-left: 30px; /*Espaçamento a esquerda*/
+}
+
+.movieRow--item {
+    display: inline-block; /*Coloca um item(imagem) ao lado do outro retirando o scroll lateral colocado pelo browser*/
+    width: 150px; /*Largura dos itens*/
+    cursor: pointer; /*Altera o cursor do mouse quando ficar sobre um item(imagem)*/
+}
+
+.movieRow--item img {
+    width: 100%;
+    transform: scale(
+        0.9
+    ); /*Coloca um espaço entre as imagens(as imagens ficam apenas com 90% do total de pixels). Permite utilizar o img:hover logo abaixo*/
+    transition: all ease 0.2s; /*Coloca o efeito de transição ao passar o cursor do mouse por cima da imagem.*/
+}
+
+.movieRow--item img:hover {
+    transform: scale(
+        1
+    ); /*Coloca a imagem em 150 pixels quando o cursor do mouse passar do cima da mesma.*/
+}
+
+.movieRow--left,
+.movieRow--right {
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.2s;
+}
+
+.movieRow--left {
+    left: 0;
+}
+
+.movieRow--right {
+    right: 0;
+}
+
+.movieRow:hover .movieRow--left,
+.movieRow:hover .movieRow--right {
+    opacity: 1;
+}
+
+.movieRow--list {
+    transition: all ease 0.5s;
+}
+
+@media (max-width: 760px) {
+    .movieRow--left,
+    .movieRow--right {
+        opacity: 1;
+    }
+}
